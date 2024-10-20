@@ -10,7 +10,7 @@
     </header>
 
     <ul>
-        @if(selectedUserTasks.length > 0){
+        @if(selectedUserTasks && selectedUserTasks.length > 0){
             @for (task of selectedUserTasks; track task.id) {
                 <li>
                     <app-task [task]="task"/>
