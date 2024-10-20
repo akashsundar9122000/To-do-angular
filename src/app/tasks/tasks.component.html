@@ -1,5 +1,5 @@
 @if (isAddingTask) {
-    <app-new-task (cancel)="onCancelAddTask()"/>
+    <app-new-task [userId]="userId" (close)="onCloseAddTask()"/>
 }
 <section id="tasks">
     <header>
@@ -10,10 +10,14 @@
     </header>
 
     <ul>
-        @for (task of selectedUserTasks; track task.id) {
-            <li>
-                <app-task [task]="task" (complete)="onCompleteTask($event)"/>
-            </li>
+        @if(selectedUserTasks.length > 0){
+            @for (task of selectedUserTasks; track task.id) {
+                <li>
+                    <app-task [task]="task"/>
+                </li>
+            }
+        } @else {
+            <p>Hurayyy!!!! you don't have any pending tasks. To add a new task press <b>"Add Task"</b> button</p>
         }
     </ul>
    

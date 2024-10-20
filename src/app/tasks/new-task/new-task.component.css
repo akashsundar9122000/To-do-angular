@@ -83,3 +83,8 @@
       padding: 2rem;
     }
   }
+  
+p.required-field label::after { 
+    content: "*";
+    color: red;
+}
